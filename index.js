@@ -13,17 +13,6 @@ function computerPlay(){
     }
 }
 
-
-    function game(nums){
-        do{
-            let result = console.log(playRound(playerSelection, computerSelection))
-            nums++;
-            return result;
-        }
-        while( nums <= 5);
-           
-        }
-
     
 
 
@@ -58,8 +47,7 @@ function playRound(playerSelection, computerSelection){
 
 
 
-console.log(game(5));
-
+console.log(playRound(playerSelection, computerSelection));
 
 
 
