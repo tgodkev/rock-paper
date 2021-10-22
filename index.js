@@ -1,5 +1,6 @@
 
-
+const playerSelection = prompt("choose rock, paper , or scissors");
+const computerSelection = computerPlay();
 
 function computerPlay(){
     let computer = Math.floor(Math.random() * 4);
@@ -11,6 +12,21 @@ function computerPlay(){
         return "scissors";
     }
 }
+
+
+    function game(nums){
+        do{
+            let result = console.log(playRound(playerSelection, computerSelection))
+            nums++;
+            return result;
+        }
+        while( nums <= 5);
+           
+        }
+
+    
+
+
 
 
 function playRound(playerSelection, computerSelection){
@@ -37,14 +53,12 @@ function playRound(playerSelection, computerSelection){
     }
     
 }
+ 
 
 
 
-const playerSelection = prompt("choose rock, paper , or scissors");
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
 
-
+console.log(game(5));
 
 
 
