@@ -15,19 +15,32 @@ function computerPlay(){
 
 function playRound(playerSelection, computerSelection){
     if( playerSelection === "rock" && computerSelection === "paper"){
-        return "Player wins because Rock beats paper";
-    }else if(playerSelection === "paper" && computerSelection === "scissors")
-    return "Player loses because scissors cut paper!";
- else if(playerSelection === "scissors" && computerSelection === "rock"){
-   return "player loses becasue rock crushes scissors!" 
-}else{
-    return "try again"
+        return "Player loses because paper covers rock";
+    }else if(playerSelection === "rock" && computerSelection === "scissors"){
+        return "player wins because rock crushes scissors"
+    } else if (playerSelection === "rock" && computerSelection === "rock"){
+        return "TIE TRY AGAIN";
+    }
+    if( playerSelection === "paper" && computerSelection === "rock"){
+        return "Player wins because paper covers rock";
+    }else if(playerSelection === "paper" && computerSelection === "scissors"){
+        return "player loses because scissors eat paper"
+    } else if (playerSelection === "paper" && computerSelection === "paper"){
+        return "TIE TRY AGAIN";
+    }
+    if( playerSelection === "scissors" && computerSelection === "paper"){
+        return "Player wins because scissors eat paper";
+    }else if(playerSelection === "scissors" && computerSelection === "scissors"){
+        return "tie try again pls"
+    } else if (playerSelection === "scissors" && computerSelection === "rock"){
+        return "player loses becuse rock smash scissors";
+    }
+    
 }
-}
 
 
 
-const playerSelection = "rock";
+const playerSelection = prompt("choose rock, paper , or scissors");
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
 
