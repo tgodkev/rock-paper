@@ -1,6 +1,29 @@
-
-const playerSelection = prompt("choose rock, paper , or scissors");
+const playerSelection = "";
 const computerSelection = computerPlay();
+
+const buttons = document.querySelectorAll('button');
+
+
+buttons.forEach((button) => {
+    button.addEventListener('click', event =>  {
+         if(event.button == rock){
+             playerSelection += "rock";
+         }else if (event.button == paper){
+             playerSelection += "paper";
+         }else if (event.button == scissors){
+             playerSelection += "scissors";
+         }
+    })
+})
+
+console.log(playerSelection)
+
+
+
+
+
+
+
 
 function computerPlay(){
     let computer = Math.floor(Math.random() * 4);
