@@ -1,24 +1,27 @@
-const playerSelection = "";
+var playerSelection = "";
+var playerScore = 0;
+var computerScore = 0;
 const computerSelection = computerPlay();
 
-const buttons = document.querySelectorAll('button');
-
-
-buttons.forEach((button) => {
-    button.addEventListener('click', event =>  {
-         if(event.button == rock){
-             playerSelection += "rock";
-         }else if (event.button == paper){
-             playerSelection += "paper";
-         }else if (event.button == scissors){
-             playerSelection += "scissors";
-         }
-    })
+const rock = document.getElementById('rock').addEventListener('click', function(e){
+    playerSelection += "rock";
+    console.log(playRound(playerSelection, computerSelection));
+    if(playRound == "player wins"){
+        playerScore += 1;
+    }
+    console.log(playerScore, computerScore);
 })
 
-console.log(playerSelection)
+const paper = document.getElementById('paper').addEventListener('click', function(e){
+    playerSelection += "paper";
+    console.log(playRound(playerSelection, computerSelection));
+})
 
 
+const scissors = document.getElementById('scissors').addEventListener('click', function(e){
+    playerSelection += "scissors";
+    console.log(playRound(playerSelection, computerSelection));
+})
 
 
 
@@ -45,17 +48,15 @@ function playRound(playerSelection, computerSelection){
     if( playerSelection === "rock" && computerSelection === "paper"){
         return "Player loses because paper covers rock";
     }else if(playerSelection === "rock" && computerSelection === "scissors"){
-        return "player wins because rock crushes scissors"
+        return "player wins" + " because rock crushes scissors"
     } else if (playerSelection === "rock" && computerSelection === "rock"){
-        return "TIE TRY AGAIN";
-    }
-    if( playerSelection === "paper" && computerSelection === "rock"){
-        return "Player wins because paper covers rock";
-    }else if(playerSelection === "paper" && computerSelection === "scissors"){
-        return "player loses because scissors eat paper"
+        return "player wins" + "because paper smothers rock"
     } else if (playerSelection === "paper" && computerSelection === "paper"){
-        return "TIE TRY AGAIN";
-    }
+        return "tie paper cant harm paper"
+     } else if (playerSelection === "paper" && computerSelection === "scissors"){
+         return "computer wins scissors eat paper"
+     }
+     
     if( playerSelection === "scissors" && computerSelection === "paper"){
         return "Player wins because scissors eat paper";
     }else if(playerSelection === "scissors" && computerSelection === "scissors"){
@@ -70,7 +71,6 @@ function playRound(playerSelection, computerSelection){
 
 
 
-console.log(playRound(playerSelection, computerSelection));
 
 
 
