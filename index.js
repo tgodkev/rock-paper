@@ -2,7 +2,7 @@ var playerSelection = "";
 const computerSelection = computerPlay();
 var playerScore = "";
 var computerScore = "";
-
+var draws = "";
 
 document.getElementById('rock').addEventListener('click', rChoice);
 
