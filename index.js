@@ -1,6 +1,38 @@
-
-const playerSelection = prompt("choose rock, paper , or scissors");
+var playerSelection = "";
 const computerSelection = computerPlay();
+var playerScore = "";
+var computerScore = "";
+var draws = "";
+
+
+document.getElementById('rock').addEventListener('click', rChoice);
+
+function rChoice(){
+    playerSelection += "rock";
+    console.log(playRound(playerSelection, computerSelection));
+    
+    
+    }
+    
+    document.getElementById('paper').addEventListener('click', pChoice);
+
+    function pChoice(){
+        playerSelection += "paper";
+        console.log(playRound(playerSelection, computerSelection));
+      
+    }
+
+    document.getElementById('scissors').addEventListener('click', sChoice);
+
+    function sChoice(){
+        playerSelection += "scissors";
+        console.log(playRound(playerSelection, computerSelection))
+        
+        
+    }
+
+
+
 
 function computerPlay(){
     let computer = Math.floor(Math.random() * 4);
@@ -13,41 +45,30 @@ function computerPlay(){
     }
 }
 
-    
+
 
 
 
 
 function playRound(playerSelection, computerSelection){
-    if( playerSelection === "rock" && computerSelection === "paper"){
-        return "Player loses because paper covers rock";
-    }else if(playerSelection === "rock" && computerSelection === "scissors"){
-        return "player wins because rock crushes scissors"
-    } else if (playerSelection === "rock" && computerSelection === "rock"){
-        return "TIE TRY AGAIN";
-    }
-    if( playerSelection === "paper" && computerSelection === "rock"){
-        return "Player wins because paper covers rock";
-    }else if(playerSelection === "paper" && computerSelection === "scissors"){
-        return "player loses because scissors eat paper"
-    } else if (playerSelection === "paper" && computerSelection === "paper"){
-        return "TIE TRY AGAIN";
-    }
-    if( playerSelection === "scissors" && computerSelection === "paper"){
-        return "Player wins because scissors eat paper";
-    }else if(playerSelection === "scissors" && computerSelection === "scissors"){
-        return "tie try again pls"
-    } else if (playerSelection === "scissors" && computerSelection === "rock"){
-        return "player loses becuse rock smash scissors";
+    if( playerSelection == "rock" && computerSelection == "scissors" || playerSelection == "paper" && computerSelection == "rock" || playerSelection == "scissors" && computerSelection == "paper"){
+        playerScore++;
+        document.getElementById('pScore').append(playerScore++);
     }
     
+    else if(playerSelection == "rock" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "scissors" || playerSelection == "scissors" && computerSelection == "rock"){
+        computerScore++;
+        document.getElementById('cScore').append(computerScore++)
+    }else{
+        draws++;
+        document.getElementById("tie").append(draws++);
+    }
 }
  
 
 
 
 
-console.log(playRound(playerSelection, computerSelection));
 
 
 
