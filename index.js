@@ -1,8 +1,8 @@
 var playerSelection = "";
 const computerSelection = computerPlay();
-var playerScore = "";
-var computerScore = "";
-var draws = "";
+var playerScore = 0;
+var computerScore = 0;
+var draws = 0;
 
 document.getElementById('rock').addEventListener('click', rChoice);
 
@@ -51,17 +51,19 @@ function computerPlay(){
 
     function playRound(playerSelection, computerSelection){
         if( playerSelection == "rock" && computerSelection == "scissors" || playerSelection == "paper" && computerSelection == "rock" || playerSelection == "scissors" && computerSelection == "paper"){
-            playerScore++;
+            playerScore+ 1;
             document.getElementById('pScore').append(playerScore++);
+        
         }
         
         else if(playerSelection == "rock" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "scissors" || playerSelection == "scissors" && computerSelection == "rock"){
-            computerScore++;
+            computerScore+ 1;
             document.getElementById('cScore').append(computerScore++)
         }else{
-            draws++;
+            draws+ 1 ;
             document.getElementById("tie").append(draws++);
         }
+        console.log(playerScore, computerScore, draws);
     }
 
  
